@@ -16,11 +16,32 @@ public class BakedGood {
         quantity = 0;
     }
 
+    //Constructor for baked good with no diet restrictions
     public BakedGood (String name, double price, String expirationDate, int quantity) {
         this.name = name;
         this.price = price;
         this.expirationDate = expirationDate;
         dietRestriction = new ArrayList<String>();
+        this.quantity = quantity;
+    }
+
+    //constructor for baked good with multiple diet restriction, added using ArrayList parameter
+    public BakedGood (String name, double price, String expirationDate, ArrayList<String> dietRestriction,
+                      int quantity) {
+        this.name = name;
+        this.price = price;
+        this.expirationDate = expirationDate;
+        this.dietRestriction = dietRestriction;
+        this.quantity = quantity;
+    }
+
+    //constructor for baked good with one diet restriction to start
+    public BakedGood (String name, double price, String expirationDate, String dietRestriction, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.expirationDate = expirationDate;
+        this.dietRestriction = new ArrayList<>();
+        this.dietRestriction.add(dietRestriction);
         this.quantity = quantity;
     }
 
@@ -70,15 +91,15 @@ public class BakedGood {
     public String toString() {
         String information = "";
         information += "Name: " + this.name + "\n";
-        information += "Price: " + this.price + "\n";
+        information += "Price: $" + this.price + "\n";
         information += "Expiration Date: " + expirationDate + "\n";
         information += "Diet Restrictions: " + dietRestriction + "\n";
         information += "Quantity: " + quantity;
         return information;
     }
 
+    //Takes a string and adds a diet restriction
     public void addDietRestriction(String ingredient) {
         dietRestriction.add(ingredient);
-
     }
 }
