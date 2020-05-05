@@ -59,6 +59,7 @@ public class Bakery {
         if (allergen.equalsIgnoreCase("all")) {
             output += this.toString();
         } else {
+            output += "Here are our baked goods that don't contain any " + allergen + ": \n";
             for (int i = 0; i < inventory.size(); i++) {
                 if (inventory.get(i).getDietRestriction().contains(allergen) == true) {
                     continue;
